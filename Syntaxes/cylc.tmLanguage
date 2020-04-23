@@ -103,7 +103,7 @@
 							<key>comment</key>
 							<string>In this situation, we cannot have string after string, or string on new line</string>
 							<key>match</key>
-							<string>(?:^|(?&lt;="))[\t ]*+([^#\n\r]+)</string>
+							<string>(?:^|(?&lt;=&quot;))[\t ]*+([^#\n\r]+)</string>
 						</dict>
 					</array>
 				</dict>
@@ -171,7 +171,7 @@
 									<key>comment</key>
 									<string>In this situation, we cannot have string after string, or string on new line</string>
 									<key>match</key>
-									<string>(?:^|(?&lt;="))[\t ]*+([^#\n\r]+)</string>
+									<string>(?:^|(?&lt;=&quot;))[\t ]*+([^#\n\r]+)</string>
 								</dict>
 							</array>
 						</dict>
@@ -185,7 +185,7 @@
 			<array>
 				<dict>
 					<key>begin</key>
-					<string>\G("{3})</string>
+					<string>\G(&quot;{3})</string>
 					<key>beginCaptures</key>
 					<dict>
 						<key>0</key>
@@ -200,7 +200,7 @@
 						</dict>
 					</dict>
 					<key>end</key>
-					<string>("{3})</string>
+					<string>(&quot;{3})</string>
 					<key>endCaptures</key>
 					<dict>
 						<key>0</key>
@@ -226,7 +226,7 @@
 				</dict>
 				<dict>
 					<key>begin</key>
-					<string>\G(")</string>
+					<string>\G(&quot;)</string>
 					<key>beginCaptures</key>
 					<dict>
 						<key>0</key>
@@ -241,7 +241,7 @@
 						</dict>
 					</dict>
 					<key>end</key>
-					<string>(["\n\r])</string>
+					<string>([&quot;\n\r])</string>
 					<key>endCaptures</key>
 					<dict>
 						<key>0</key>
@@ -280,7 +280,7 @@
 						</dict>
 					</dict>
 					<key>match</key>
-					<string>\G[^#\n\r"]+</string>
+					<string>\G[^#\n\r&quot;]+</string>
 					<key>name</key>
 					<string>meta.graph-syntax.unquoted.cylc</string>
 				</dict>
@@ -471,7 +471,7 @@
 						</dict>
 						<dict>
 							<key>comment</key>
-							<string>Integer as long as it isn't adjacent to a letter</string>
+							<string>Integer as long as it isn&#39;t adjacent to a letter</string>
 							<key>match</key>
 							<string>\b\d+\b</string>
 							<key>name</key>
@@ -1178,7 +1178,7 @@
 							<key>comment</key>
 							<string>In this situation, we cannot have string after string, or string on new line</string>
 							<key>match</key>
-							<string>(?:^|(?&lt;="))[\t ]*+([^#\n\r]+)</string>
+							<string>(?:^|(?&lt;=&quot;))[\t ]*+([^#\n\r]+)</string>
 						</dict>
 						<dict>
 							<key>include</key>
@@ -1213,7 +1213,7 @@
 			<array>
 				<dict>
 					<key>begin</key>
-					<string>("{3})</string>
+					<string>(&quot;{3})</string>
 					<key>beginCaptures</key>
 					<dict>
 						<key>1</key>
@@ -1223,7 +1223,7 @@
 						</dict>
 					</dict>
 					<key>end</key>
-					<string>("{3})</string>
+					<string>(&quot;{3})</string>
 					<key>endCaptures</key>
 					<dict>
 						<key>1</key>
@@ -1250,7 +1250,7 @@
 				</dict>
 				<dict>
 					<key>begin</key>
-					<string>(")</string>
+					<string>(&quot;)</string>
 					<key>beginCaptures</key>
 					<dict>
 						<key>1</key>
@@ -1260,7 +1260,7 @@
 						</dict>
 					</dict>
 					<key>end</key>
-					<string>(["\n\r])</string>
+					<string>([&quot;\n\r])</string>
 					<key>endCaptures</key>
 					<dict>
 						<key>1</key>
