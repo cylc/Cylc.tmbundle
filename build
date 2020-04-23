@@ -1,0 +1,37 @@
+#!/usr/bin/env bash
+
+# Open the bundle editor via the bundle menu
+
+# Create a new bundle
+
+# Within that bundle create a new language
+
+# Close the bundle editor
+
+# Navigate to /Users/$USER/Library/Application Support/TextMate/Bundles/
+
+# Copy your tmLanguage.json file into the bundle
+
+# Copy the uuid line(s) from the .tmLanguage file in the Syntaxes folder
+
+set -eu
+
+JSON_FILE='cylc-textmate-grammar/cylc.tmLanguage.json'
+TEMP_FILE='temp'
+DEST_FILE='Syntaxes/cylc.tmLanguage'
+
+# Paste the uuid line(s) into Syntaxes/cylc.tmLanguage
+python3 -c "
+import json
+with open('$JSON_FILE', 'r') as json_file:
+    grammar = json.load(json_file)
+grammar.pop('\$schema')
+grammar['scopeName'] = 'source.cylc'
+grammar['uuid'] = 'FC7AB0B4-9DE2-4162-8470-6A3139F90599'
+json.dump(grammar, open('$TEMP_FILE', 'w+'))
+"
+
+# Translate the JSON to XML/Plist and put it in a Syntaxes folder:
+plutil -convert xml1 "$TEMP_FILE" -o "$DEST_FILE"
+
+rm "$TEMP_FILE"

@@ -1,0 +1,3 @@
+[submodule "cylc-textmate-grammar"]
+	path = cylc-textmate-grammar
+	url = https://github.com/cylc/cylc-textmate-grammar.git
