@@ -1,6 +1,6 @@
 # Cylc TextMate Grammar
 
-A TextMate bundle for working with [Cylc](www.cylc.org) workflow
+A TextMate bundle for working with [Cylc](http://www.cylc.org) workflow
 configuration files.
 
 ## Installing
