@@ -1,10 +1,11 @@
 name: release
 
-
-on: [pull_request]
+on:
+  schedule:
+    - cron: '15 3 * * *'  # run daily at 03:15
 
 jobs:
-  gh-pages:
+  rebuild:
     runs-on: ubuntu-latest
     steps:
       - name: checkout
