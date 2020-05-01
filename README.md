@@ -1,5 +1,7 @@
 # Cylc TextMate Grammar
 
+Last updated: 2020
+
 A TextMate bundle for working with [Cylc](http://www.cylc.org) workflow
 configuration files.
 
