@@ -31,7 +31,7 @@ jobs:
       - name: build
         run: |
           ruby build.rb
-          sed -i "s/Last updated.*:/Last updated: $(date +%Y-%m-%d)/" README.md
+          sed -i "s/Last updated: .*/Last updated: $(date +%Y-%m-%d)/" README.md
       - name: configure git
         run: |
           git config --local 'user.email' 'action@github.com'
