@@ -12,6 +12,8 @@ jobs:
         uses: actions/checkout@v2
       - name: update
         run: |
+          # note the output of git submodule status varies pre/post init
+          git submodule init --recursive
           git submodule status --recursive > before
           git submodule update --recursive --init
           git submodule status --recursive > after
