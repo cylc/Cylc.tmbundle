@@ -2,7 +2,7 @@ name: release
 
 on:
   schedule:
-    - cron: '13 05 * * *'  # run daily at 13:05
+    - cron: '05 13 * * *'  # run daily at 13:05
 
 jobs:
   rebuild:
@@ -10,15 +10,17 @@ jobs:
     steps:
       - name: checkout
         uses: actions/checkout@v2
-      - name: update
+        with:
+          submodules: true
+      - name: update cylc-textmate-grammar submodule
         run: |
-          # note the output of git submodule status varies pre/post init
-          git submodule init --recursive
-          git submodule status --recursive > before
-          git submodule update --recursive --init
-          git submodule status --recursive > after
-          if diff before after; then
-            echo 'No update required' >&2
+          git submodule status > before
+          git submodule update --remote
+          git submodule status > after
+          echo "Status before update: $(<before)"
+          echo "        after update: $(<after)"
+          if cmp -s before after; then
+            echo 'No update available' >&2
             exit 1
           fi
       - name: configure ruby
