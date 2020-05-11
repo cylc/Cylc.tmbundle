@@ -137,13 +137,24 @@
 						</dict>
 						<dict>
 							<key>begin</key>
-							<string>([\w\+\^\$][\w\+\-\^\$\/\t ,:]*)(=)[\t ]*</string>
+							<string>(\S[^=#]*)(=)[\t ]*</string>
 							<key>beginCaptures</key>
 							<dict>
 								<key>1</key>
 								<dict>
-									<key>name</key>
-									<string>keyword.graph.cylc</string>
+									<key>patterns</key>
+									<array>
+										<dict>
+											<key>include</key>
+											<string>#jinja2</string>
+										</dict>
+										<dict>
+											<key>match</key>
+											<string>[\w\+\^\$][\w\+\-\^\$\/\t ,:]*</string>
+											<key>name</key>
+											<string>keyword.graph.cylc</string>
+										</dict>
+									</array>
 								</dict>
 								<key>2</key>
 								<dict>
@@ -441,6 +452,10 @@
 					<string>meta.annotation.inter-cycle.cylc</string>
 					<key>patterns</key>
 					<array>
+						<dict>
+							<key>include</key>
+							<string>#jinja2</string>
+						</dict>
 						<dict>
 							<key>include</key>
 							<string>#intervals</string>
@@ -1129,7 +1144,7 @@
 			<array>
 				<dict>
 					<key>begin</key>
-					<string>(\S[^=#\n\r]+?)[\t ]*(=)[\t ]*</string>
+					<string>([^=#\s][^=#\n\r]*?)?[\t ]*(=)[\t ]*</string>
 					<key>beginCaptures</key>
 					<dict>
 						<key>1</key>
@@ -1142,7 +1157,7 @@
 								</dict>
 								<dict>
 									<key>match</key>
-									<string>\b[\w\-\t ]+\b</string>
+									<string>[\w\-\t ]+</string>
 									<key>name</key>
 									<string>variable.other.key.cylc</string>
 								</dict>
