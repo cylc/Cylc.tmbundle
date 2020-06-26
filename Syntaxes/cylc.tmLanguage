@@ -2,6 +2,14 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
+	<key>fileTypes</key>
+	<array>
+		<string>suite.rc</string>
+		<string>suite.rc.processed</string>
+		<string>cylc</string>
+		<string>flow.rc</string>
+		<string>flow-tests.rc</string>
+	</array>
 	<key>name</key>
 	<string>cylc</string>
 	<key>patterns</key>
@@ -128,7 +136,7 @@
 					<key>contentName</key>
 					<string>meta.graph-section.cylc</string>
 					<key>end</key>
-					<string>(?=^[	 ]*\[)</string>
+					<string>(?=^[\t ]*\[)</string>
 					<key>patterns</key>
 					<array>
 						<dict>
