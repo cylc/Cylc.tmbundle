@@ -1,4 +1,4 @@
-# Cylc TextMate Grammar
+# Cylc TextMate Bundle
 
 Last updated: 2020-06-26
 
@@ -17,6 +17,28 @@ Download this repository keeping the `.tmbundle` extension.
     ``git clone https://github.com/cylc/Cylc.tmbundle <path to sublime packages>/Cylc.tmbundle``
 
    (to get package path click Preferences => Browse Packages)
+
+## FAQ - How do I enable syntax highlighting for all `.rc` files?
+
+By default this bundle will enable highlighting for `suite.rc` and `.cylc` files (plus a few others), but not all `.rc` files. However, you can add your own file associations:
+
+Once you've downloaded the repository, open the `Syntaxes/cylc.tmLanguage` file and add `<string>rc</string>` under the `fileTypes` key, like this:
+```diff
+ <?xml version="1.0" encoding="UTF-8"?>
+ <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+ <plist version="1.0">
+ <dict>
+        <key>fileTypes</key>
+        <array>
+                <string>suite.rc</string>
+                <string>cylc</string>
++               <string>rc</string>
+        </array>
+...
+```
+You will probably have to restart the editor for this to take effect.
+
+Note: you can add exact matches (e.g. `suite.rc.processed`) OR extensions without the dot (e.g. `rc`), but you cannot use wildcards (e.g. `*` won't work).
 
 ## Building
 
