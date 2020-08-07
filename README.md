@@ -59,13 +59,13 @@ The bundle editor appears to have disappeared in version 2, these steps apply
 to TextMate 1.5:
 
 1. Open TextMate.
-2. Open the bundle editor via the bundle menu.
-3. Create a new bundle.
-4. Within that bundle create a new language.
-5. Close the bundle editor.
-6. Navigate to `/Users/$USER/Library/Application Support/TextMate/Bundles/`.
+1. Open the bundle editor via the bundle menu.
+1. Create a new bundle.
+1. Within that bundle create a new language.
+1. Close the bundle editor.
+1. Navigate to `/Users/$USER/Library/Application Support/TextMate/Bundles/`.
 
 You now have a blank bundle. We need the bundle for two things:
 
 1. The `info.plist` file (which we will keep).
-2. The `uuid` in the language file (which we will use in the build process).
+1. The `uuid` in the language file (which we will use in the build process).
