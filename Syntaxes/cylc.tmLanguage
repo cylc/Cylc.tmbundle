@@ -7,6 +7,7 @@
 		<string>suite.rc</string>
 		<string>suite.rc.processed</string>
 		<string>cylc</string>
+		<string>cylc.processed</string>
 		<string>flow.rc</string>
 		<string>flow-tests.rc</string>
 	</array>
