@@ -1,6 +1,6 @@
 # Cylc TextMate Bundle
 
-Last updated: <span actions:bind='update-date'>2020-08-20</span>
+Last updated: <span actions:bind='update-date'>2022-01-12</span>
 
 A TextMate bundle for working with [Cylc](http://www.cylc.org) workflow
 configuration files.
