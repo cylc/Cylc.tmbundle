@@ -55,18 +55,27 @@
 			<key>patterns</key>
 			<array>
 				<dict>
-					<key>captures</key>
+					<key>begin</key>
+					<string>#</string>
+					<key>beginCaptures</key>
 					<dict>
-						<key>1</key>
+						<key>0</key>
 						<dict>
 							<key>name</key>
 							<string>punctuation.definition.comment.cylc</string>
 						</dict>
 					</dict>
-					<key>match</key>
-					<string>(#).*</string>
+					<key>end</key>
+					<string>(?=[\n\r])</string>
 					<key>name</key>
 					<string>comment.line.cylc</string>
+					<key>patterns</key>
+					<array>
+						<dict>
+							<key>include</key>
+							<string>#jinja2</string>
+						</dict>
+					</array>
 				</dict>
 			</array>
 		</dict>
@@ -389,6 +398,12 @@
 					<string>(?&lt;=^|[\s&amp;&gt;])(!)(\b\w[\w\+\-@%]*)</string>
 					<key>name</key>
 					<string>meta.variable.suicide.cylc</string>
+				</dict>
+				<dict>
+					<key>match</key>
+					<string>(?&lt;=(\b\w[\w\+\-@%]*|((:)([\w\-]+))|&lt;.*&gt;) *)\?(?![:\w])</string>
+					<key>name</key>
+					<string>keyword.other.optional-output.cylc</string>
 				</dict>
 				<dict>
 					<key>captures</key>
