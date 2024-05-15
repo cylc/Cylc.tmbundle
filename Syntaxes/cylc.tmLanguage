@@ -332,10 +332,99 @@
 					<string>#jinja2</string>
 				</dict>
 				<dict>
+					<key>captures</key>
+					<dict>
+						<key>1</key>
+						<dict>
+							<key>name</key>
+							<string>meta.variable.task.cylc</string>
+						</dict>
+						<key>2</key>
+						<dict>
+							<key>name</key>
+							<string>meta.annotation.inter-cycle.cylc</string>
+						</dict>
+						<key>3</key>
+						<dict>
+							<key>name</key>
+							<string>punctuation.section.brackets.begin.cylc</string>
+						</dict>
+						<key>4</key>
+						<dict>
+							<key>name</key>
+							<string>meta.annotation.inter-cycle.cylc</string>
+							<key>patterns</key>
+							<array>
+								<dict>
+									<key>include</key>
+									<string>#jinja2</string>
+								</dict>
+								<dict>
+									<key>include</key>
+									<string>#intervals</string>
+								</dict>
+								<dict>
+									<key>include</key>
+									<string>#isodatetimes</string>
+								</dict>
+								<dict>
+									<key>captures</key>
+									<dict>
+										<key>0</key>
+										<dict>
+											<key>name</key>
+											<string>constant.language.cycle-point.cylc</string>
+										</dict>
+									</dict>
+									<key>comment</key>
+									<string>Initial cycle point</string>
+									<key>match</key>
+									<string>\^</string>
+								</dict>
+								<dict>
+									<key>match</key>
+									<string>[\+\-]</string>
+									<key>name</key>
+									<string>keyword.operator.arithmetic.cylc</string>
+								</dict>
+								<dict>
+									<key>comment</key>
+									<string>Integer as long as it isn&#39;t adjacent to a letter</string>
+									<key>match</key>
+									<string>\b\d+\b</string>
+									<key>name</key>
+									<string>constant.numeric.integer-point.cylc</string>
+								</dict>
+							</array>
+						</dict>
+						<key>5</key>
+						<dict>
+							<key>name</key>
+							<string>punctuation.section.brackets.end.cylc</string>
+						</dict>
+						<key>6</key>
+						<dict>
+							<key>name</key>
+							<string>meta.annotation.qualifier.cylc</string>
+						</dict>
+						<key>7</key>
+						<dict>
+							<key>name</key>
+							<string>punctuation.definition.annotation.cylc</string>
+						</dict>
+						<key>8</key>
+						<dict>
+							<key>name</key>
+							<string>variable.annotation.cylc</string>
+						</dict>
+						<key>9</key>
+						<dict>
+							<key>name</key>
+							<string>keyword.other.optional-output.cylc</string>
+						</dict>
+					</dict>
 					<key>match</key>
-					<string>\b\w[\w\+\-@%]*</string>
-					<key>name</key>
-					<string>meta.variable.task.cylc</string>
+					<string>(\b\w[\w\+\-@%]*)((\[)([^\]]+)(\]))?((:)([\w\-]+))?\s*(\?(?![:\w]))?</string>
 				</dict>
 				<dict>
 					<key>match</key>
@@ -400,12 +489,6 @@
 					<string>meta.variable.suicide.cylc</string>
 				</dict>
 				<dict>
-					<key>match</key>
-					<string>(?&lt;=(\b\w[\w\+\-@%]*|((:)([\w\-]+))|&lt;.*&gt;) *)\?(?![:\w])</string>
-					<key>name</key>
-					<string>keyword.other.optional-output.cylc</string>
-				</dict>
-				<dict>
 					<key>captures</key>
 					<dict>
 						<key>1</key>
@@ -424,99 +507,6 @@
 					<string>\\</string>
 					<key>name</key>
 					<string>constant.character.escape.continuation.cylc</string>
-				</dict>
-				<dict>
-					<key>captures</key>
-					<dict>
-						<key>1</key>
-						<dict>
-							<key>name</key>
-							<string>meta.annotation.qualifier.cylc</string>
-						</dict>
-						<key>2</key>
-						<dict>
-							<key>name</key>
-							<string>punctuation.definition.annotation.cylc</string>
-						</dict>
-						<key>3</key>
-						<dict>
-							<key>name</key>
-							<string>variable.annotation.cylc</string>
-						</dict>
-					</dict>
-					<key>comment</key>
-					<string>e.g. foo:fail =&gt; bar</string>
-					<key>match</key>
-					<string>(?&lt;!^|[\s:])((:)([\w\-]+))</string>
-				</dict>
-				<dict>
-					<key>begin</key>
-					<string>(?&lt;=\S)\[</string>
-					<key>beginCaptures</key>
-					<dict>
-						<key>0</key>
-						<dict>
-							<key>name</key>
-							<string>punctuation.section.brackets.begin.cylc</string>
-						</dict>
-					</dict>
-					<key>comment</key>
-					<string>e.g. foo[-P1]</string>
-					<key>end</key>
-					<string>\]</string>
-					<key>endCaptures</key>
-					<dict>
-						<key>0</key>
-						<dict>
-							<key>name</key>
-							<string>punctuation.section.brackets.end.cylc</string>
-						</dict>
-					</dict>
-					<key>name</key>
-					<string>meta.annotation.inter-cycle.cylc</string>
-					<key>patterns</key>
-					<array>
-						<dict>
-							<key>include</key>
-							<string>#jinja2</string>
-						</dict>
-						<dict>
-							<key>include</key>
-							<string>#intervals</string>
-						</dict>
-						<dict>
-							<key>include</key>
-							<string>#isodatetimes</string>
-						</dict>
-						<dict>
-							<key>captures</key>
-							<dict>
-								<key>1</key>
-								<dict>
-									<key>name</key>
-									<string>constant.language.cycle-point.cylc</string>
-								</dict>
-							</dict>
-							<key>comment</key>
-							<string>If 1st char is ^ (allowing for spaces)</string>
-							<key>match</key>
-							<string>\G[\t ]*(\^)</string>
-						</dict>
-						<dict>
-							<key>match</key>
-							<string>[\+\-]</string>
-							<key>name</key>
-							<string>keyword.operator.arithmetic.cylc</string>
-						</dict>
-						<dict>
-							<key>comment</key>
-							<string>Integer as long as it isn&#39;t adjacent to a letter</string>
-							<key>match</key>
-							<string>\b\d+\b</string>
-							<key>name</key>
-							<string>constant.numeric.integer-point.cylc</string>
-						</dict>
-					</array>
 				</dict>
 			</array>
 		</dict>
@@ -1016,13 +1006,96 @@
 						</dict>
 					</dict>
 					<key>end</key>
-					<string>&gt;</string>
+					<string>(&gt;)((\[)([^\]]+)(\]))?((:)([\w\-]+))?\s*(\?(?![:\w]))?</string>
 					<key>endCaptures</key>
 					<dict>
-						<key>0</key>
+						<key>1</key>
 						<dict>
 							<key>name</key>
 							<string>punctuation.definition.annotation.end.cylc</string>
+						</dict>
+						<key>2</key>
+						<dict>
+							<key>name</key>
+							<string>meta.annotation.inter-cycle.cylc</string>
+						</dict>
+						<key>3</key>
+						<dict>
+							<key>name</key>
+							<string>punctuation.section.brackets.begin.cylc</string>
+						</dict>
+						<key>4</key>
+						<dict>
+							<key>name</key>
+							<string>meta.annotation.inter-cycle.cylc</string>
+							<key>patterns</key>
+							<array>
+								<dict>
+									<key>include</key>
+									<string>#jinja2</string>
+								</dict>
+								<dict>
+									<key>include</key>
+									<string>#intervals</string>
+								</dict>
+								<dict>
+									<key>include</key>
+									<string>#isodatetimes</string>
+								</dict>
+								<dict>
+									<key>captures</key>
+									<dict>
+										<key>0</key>
+										<dict>
+											<key>name</key>
+											<string>constant.language.cycle-point.cylc</string>
+										</dict>
+									</dict>
+									<key>comment</key>
+									<string>Initial cycle point</string>
+									<key>match</key>
+									<string>\^</string>
+								</dict>
+								<dict>
+									<key>match</key>
+									<string>[\+\-]</string>
+									<key>name</key>
+									<string>keyword.operator.arithmetic.cylc</string>
+								</dict>
+								<dict>
+									<key>comment</key>
+									<string>Integer as long as it isn&#39;t adjacent to a letter</string>
+									<key>match</key>
+									<string>\b\d+\b</string>
+									<key>name</key>
+									<string>constant.numeric.integer-point.cylc</string>
+								</dict>
+							</array>
+						</dict>
+						<key>5</key>
+						<dict>
+							<key>name</key>
+							<string>punctuation.section.brackets.end.cylc</string>
+						</dict>
+						<key>6</key>
+						<dict>
+							<key>name</key>
+							<string>meta.annotation.qualifier.cylc</string>
+						</dict>
+						<key>7</key>
+						<dict>
+							<key>name</key>
+							<string>punctuation.definition.annotation.cylc</string>
+						</dict>
+						<key>8</key>
+						<dict>
+							<key>name</key>
+							<string>variable.annotation.cylc</string>
+						</dict>
+						<key>9</key>
+						<dict>
+							<key>name</key>
+							<string>keyword.other.optional-output.cylc</string>
 						</dict>
 					</dict>
 					<key>name</key>
@@ -1088,7 +1161,7 @@
 										</dict>
 									</dict>
 									<key>comment</key>
-									<string>e.g. foo:fail =&gt; bar</string>
+									<string>e.g. foo:fail</string>
 									<key>match</key>
 									<string>(?&lt;!^|[\s:])((:)([\w\-]+))</string>
 								</dict>
